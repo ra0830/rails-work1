@@ -1,0 +1,16 @@
+<br><br><br>
+<h3>以下の内容で、送信します、よろしければ送信を！</h3>
+
+<%= form_with(model: @post, url: posts_path, local: true) do |post| %>
+  
+  <%= post.hidden_field :content %>
+<br><br><br><br><br>
+  <p>本文:<%= @post.content %></p>
+<br><br><br><br><br><br><br><br><br><br><br>  
+  <%= post.submit  "送信" %>
+<% end %>
+
+<%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |post| %>
+  <%= post.hidden_field :content %>
+  <%= post.submit "もどる", name: 'back' %>
+<% end %>
